@@ -39,7 +39,7 @@ export default function BookingsScreen() {
   }
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.title}>Bookings</Text>
       {bookings.map((booking) => (
         <View key={booking.id} style={styles.card}>
@@ -50,7 +50,7 @@ export default function BookingsScreen() {
           <Text style={styles.cardText}>Status: {booking.status}</Text>
         </View>
       ))}
-    </ScrollView>
+    </View>
   );
 }
 

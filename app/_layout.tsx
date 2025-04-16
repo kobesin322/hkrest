@@ -28,6 +28,15 @@ export default function Layout() {
           tabBarIcon: ({ color }) => <FontAwesome name="search" size={24} color={color} />,
         }}
       />
+
+<Tabs.Screen
+        name="explores"
+        options={{
+          title: 'Explores',
+          tabBarIcon: ({ color }) => <FontAwesome name="search" size={24} color={color} />,
+        }}
+      />
+
     </Tabs>
   );
 } 
