@@ -11,6 +11,8 @@ export default function BookingsScreen() {
     loadBookings();
   }, []);
 
+  console.log(bookings)
+
   const loadBookings = async () => {
     try {
       const data = await fetchBookings();
