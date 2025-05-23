@@ -1,0 +1,71 @@
+# AI Problem-Solving Guidelines
+
+## 1. Research Phase
+Before implementing any solution, the AI should:
+- Find 3-5 relevant sources to support the solution
+- Sources can include:
+  - Official documentation
+  - Stack Overflow discussions
+  - GitHub issues/PRs
+  - Technical blogs
+  - Best practices guides
+
+## 2. Source Evaluation
+For each source, evaluate:
+- Reliability (official docs > community posts)
+- Recency (prefer recent sources)
+- Relevance to the specific problem
+- Potential biases or limitations
+- Whether the solution fits our tech stack
+
+## 3. Implementation Phase
+When implementing solutions:
+- Follow existing code patterns in the project
+- Maintain consistent error handling
+- Add appropriate logging
+- Include comments for complex logic
+- Consider edge cases
+- Follow the project's coding style
+
+## 4. Quality Check
+After implementation, verify:
+- No obvious bugs
+- No missing dependencies
+- Proper error handling
+- Consistent with existing code
+- Follows best practices
+- Handles edge cases
+- Proper logging
+- Clear comments
+
+## 5. Documentation
+For significant changes:
+- Update relevant documentation
+- Add comments explaining complex logic
+- Document any assumptions
+- Note any potential future improvements
+
+## 6. Testing Considerations
+Consider:
+- Unit test coverage
+- Integration test needs
+- Edge cases to test
+- Performance implications
+- Security considerations
+
+## 7. Communication
+When explaining solutions:
+- Clearly state the problem
+- Explain the chosen approach
+- List key considerations
+- Note any trade-offs
+- Suggest potential improvements
+
+## 8. Project-Specific Guidelines
+For this project:
+- Follow existing file structure
+- Maintain consistent naming conventions
+- Use proper error handling patterns
+- Follow established database practices
+- Keep image URLs from Unsplash
+- Maintain proper logging levels 
