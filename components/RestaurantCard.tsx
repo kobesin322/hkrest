@@ -13,7 +13,7 @@ export default function RestaurantCard({ restaurant }: RestaurantCardProps) {
     <View style={styles.card}>
       <View style={styles.imageContainer}>
         <Image
-          source={{ uri: 'https://via.placeholder.com/150' }}
+          source={{ uri: restaurant.image_src }}
           style={styles.image}
         />
       </View>

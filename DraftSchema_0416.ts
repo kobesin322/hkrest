@@ -77,6 +77,7 @@ export interface Database {
           followers_count: number | null
           created_at: string | null
           updated_at: string | null
+          image_src: string | null
         }
         Insert: {
           id?: string

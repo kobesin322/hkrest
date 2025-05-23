@@ -52,7 +52,7 @@ export default function RestaurantsScreen() {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Restaurants A</Text>
+      <Text style={styles.title}>Restaurants</Text>
       <Text style={styles.subtitle}>Find your next favorite  spot</Text>
       
       <View style={styles.restaurantsList}>
