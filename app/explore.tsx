@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, ActivityIndicator } from 'react-nat
 import { supabase } from '@/supabase/supabase';
 import { Database } from '@/DraftSchema_0416';
 import RestaurantCard from '@/components/RestaurantCard';
+import { Stack } from 'expo-router';
 
 type Restaurant = Database['public']['Tables']['restaurants']['Row'];
 
@@ -51,16 +52,24 @@ export default function RestaurantsScreen() {
   }
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.title}>Restaurants</Text>
-      <Text style={styles.subtitle}>Find your next favorite  spot</Text>
-      
-      <View style={styles.restaurantsList}>
-        {restaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.id} restaurant={restaurant} />
-        ))}
-      </View>
-    </ScrollView>
+    <>
+      <Stack.Screen
+        options={{
+          title: 'Restaurants',
+          headerLargeTitle: true,
+        }}
+      />
+      <ScrollView style={styles.container}>
+        <Text style={styles.title}>Restaurants A</Text>
+        <Text style={styles.subtitle}>Find your next favorite  spot</Text>
+        
+        <View style={styles.restaurantsList}>
+          {restaurants.map((restaurant) => (
+            <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+          ))}
+        </View>
+      </ScrollView>
+    </>
   );
 }
 

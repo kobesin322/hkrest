@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import { Database } from '@/DraftSchema_0416';
+import { router } from 'expo-router';
 
 type Restaurant = Database['public']['Tables']['restaurants']['Row'];
 
@@ -9,11 +10,15 @@ interface RestaurantCardProps {
 }
 
 export default function RestaurantCard({ restaurant }: RestaurantCardProps) {
+  const handlePress = () => {
+    router.push(`/restaurant/${restaurant.id}`);
+  };
+
   return (
-    <View style={styles.card}>
+    <Pressable onPress={handlePress} style={styles.card}>
       <View style={styles.imageContainer}>
         <Image
-          source={{ uri: restaurant.image_src }}
+          source={{ uri: restaurant.image_src || 'https://via.placeholder.com/400x300' }}
           style={styles.image}
         />
       </View>
@@ -32,7 +37,7 @@ export default function RestaurantCard({ restaurant }: RestaurantCardProps) {
           <Text style={styles.priceRange}>{restaurant.price_range}</Text>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
