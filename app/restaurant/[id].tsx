@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, Pressable, Dimensions } from 'react-native';
 import { useLocalSearchParams, useRouter, Stack } from 'expo-router';
 import { FontAwesome } from '@expo/vector-icons';
 import { supabase } from '@/supabase/supabase';
 import { Database } from '@/DraftSchema_0416';
 import { useEffect, useState } from 'react';
+import MapView, { Marker } from 'react-native-maps';
 
 type Restaurant = Database['public']['Tables']['restaurants']['Row'];
 
@@ -42,6 +43,8 @@ export default function RestaurantDetailsScreen() {
       </View>
     );
   }
+
+  const hasLocation = restaurant.latitude != null && restaurant.longitude != null;
 
   return (
     <>
@@ -91,6 +94,29 @@ export default function RestaurantDetailsScreen() {
             </Text>
           </View>
 
+          {hasLocation && (
+            <View style={styles.mapContainer}>
+              <MapView
+                style={styles.map}
+                initialRegion={{
+                  latitude: restaurant.latitude as number,
+                  longitude: restaurant.longitude as number,
+                  latitudeDelta: 0.01,
+                  longitudeDelta: 0.01,
+                }}
+              >
+                <Marker
+                  coordinate={{
+                    latitude: restaurant.latitude as number,
+                    longitude: restaurant.longitude as number,
+                  }}
+                  title={restaurant.name}
+                  description={restaurant.address}
+                />
+              </MapView>
+            </View>
+          )}
+
           <View style={styles.infoSection}>
             <Text style={styles.sectionTitle}>About</Text>
             <Text style={styles.description}>
@@ -98,10 +124,6 @@ export default function RestaurantDetailsScreen() {
             </Text>
           </View>
 
-          <View style={styles.infoSection}>
-            <Text style={styles.sectionTitle}>Opening Hours</Text>
-            
-          </View>
         </View>
       </ScrollView>
     </>
@@ -204,5 +226,17 @@ const styles = StyleSheet.create({
   backButton: {
     padding: 8,
     marginLeft: 8,
+  },
+  mapContainer: {
+    height: 200,
+    marginVertical: 16,
+    borderRadius: 12,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+  },
+  map: {
+    width: '100%',
+    height: '100%',
   },
 }); 
